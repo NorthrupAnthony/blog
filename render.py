@@ -240,7 +240,9 @@ def parse_file(logic, file_name, file_contents):
 			res = res + breadcrumb[1]
 			res = res + snippet_breadcrumb_link_tail
 	res = res + snippet_breadcrumb_active_head
-	if "title" in data:
+	if "breadcrumb" in data:
+		res = res + data["breadcrumb"]
+	elif "title" in data:
 		res = res + data["title"]
 	res = res + snippet_breadcrumb_active_tail
 	res = res + snippet_article_head
