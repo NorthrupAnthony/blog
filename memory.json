@@ -22,7 +22,7 @@
         "links": []
     }, 
     "/contact": {
-        "hash": "d21d12ea45281676c604c9a7817f5db1", 
+        "hash": "e61eac31f59257606a771edd5dbb645f", 
         "links": [
             "/css/styles.css", 
             "/index", 
@@ -31,7 +31,7 @@
         ]
     }, 
     "/about": {
-        "hash": "ba1467ef27c72a9039286e4a985c1c5b", 
+        "hash": "b034a5d5f387a11c2321b89f9755486c", 
         "links": [
             "/css/styles.css", 
             "/index", 

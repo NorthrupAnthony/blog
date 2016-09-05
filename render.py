@@ -303,9 +303,9 @@ def main():
 			found = True
 			print "[-] Rendering: " + page_name
 			logic.rendering(page_name)
-			mode = "w"
+			mode = "w+"
 			if isbinary == True:
-				mode = "wb"
+				mode = "wb+"
 			with open(fname, mode) as f:
 				if ".page" in pname:
 					f.write(parse_file(logic, pname, pcontents))
