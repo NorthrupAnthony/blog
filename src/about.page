@@ -6,6 +6,12 @@
 	"langs": [],
 	"styles": [],
 	"content": [
-		"My about page..."
+		"My about page...",
+		{
+			"type": "img",
+			"src": "/img/Me.jpg",
+			"alt": "My Face"
+		},
+		"Well... Now you know what I look like too. Though if you are looking at this, you might have already seen my github, which has this photo. It's probably not a surprise."
 	]
 }

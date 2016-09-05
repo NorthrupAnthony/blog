@@ -3,6 +3,8 @@ from codesnippets import *
 from collections import deque
 
 nav_links = [["/index", "Home"], ["/about", "About"], ["/contact", "Contact"]]
+raw_exts = set(["png", "jpg", "bmp"])
+
 def file_name(folder, pname, ext):
 	fname = pname
 	if "." not in fname:
@@ -15,9 +17,12 @@ def dist_page_name(pname):
 def source_page_name(pname):
 	return file_name("src", pname, "page")
 
-def get(fname):
+def get(fname, binary=False):
+	mode = 'r'
+	if binary == True:
+		mode = 'rb'
 	res = ""
-	with open(fname, 'r') as f:
+	with open(fname, mode) as f:
 		res = f.read()
 	return res
 def load_contents(contents):
@@ -183,7 +188,7 @@ def parse(logic, fname, body):
 			elif item["type"] == "img":
 				res = res + snippet_tags["img"][0]
 				if "src" in item:
-					res = res + item["src"]
+					res = res + path_route(logic, fname, item["src"])
 				res = res + snippet_tags["img"][1]
 				if "alt" in item:
 					res = res + item["alt"]
@@ -282,7 +287,10 @@ def main():
 		if not os.path.isfile(pname):
 			print "[!] Does Not Exist: " + pname
 			continue
-		pcontents = get(pname)
+		isbinary = False
+		if pname[(pname.rfind('.') + 1):] in raw_exts:
+			isbinary = True
+		pcontents = get(pname, isbinary)
 		render = True
 		if logic.checkRendered(page_name, pcontents):
 			render = False
@@ -295,11 +303,14 @@ def main():
 			found = True
 			print "[-] Rendering: " + page_name
 			logic.rendering(page_name)
-			with open(fname, "w+") as f:
+			mode = "w"
+			if isbinary == True:
+				mode = "wb"
+			with open(fname, mode) as f:
 				if ".page" in pname:
-					f.writelines(parse_file(logic, pname, pcontents))
+					f.write(parse_file(logic, pname, pcontents))
 				else:
-					f.writelines(pcontents)
+					f.write(pcontents)
 			logic.doneRendering(page_name, pcontents)
 	logic.stop()
 	if found == False:

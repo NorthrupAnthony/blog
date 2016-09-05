@@ -1,4 +1,8 @@
 {
+    "/img/Me.jpg": {
+        "hash": "5044a0bdf99ecb7dcfb7a7d523859395", 
+        "links": []
+    }, 
     "/Test/styles.css": {
         "hash": "6406ff18372eae67baba9c4647d5a64c", 
         "links": []
@@ -27,12 +31,13 @@
         ]
     }, 
     "/about": {
-        "hash": "daabf8a18e225544ac468325faf1011f", 
+        "hash": "ba1467ef27c72a9039286e4a985c1c5b", 
         "links": [
             "/css/styles.css", 
             "/index", 
             "/about", 
-            "/contact"
+            "/contact", 
+            "/img/Me.jpg"
         ]
     }, 
     "/css/styles.css": {
