@@ -1,0 +1,65 @@
+<!-- Parsed from src/Test/index.page -->
+<!DOCTYPE html>
+<head>
+	<title>Test Home</title>
+	<link rel="stylesheet" type="text/css" href="../css/styles.css" />
+	
+	<!-- Highlight.js -->
+	<!-- Download more languages: https://cdnjs.com/libraries/highlight.js/9.6.0 -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/default.min.css" />
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+	
+	<!-- MathJax -->
+	<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+	<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({
+			tex2jax: {inlineMath: [ ['$','$'], ['\\(','\\)'] ]},
+			showMathMenu: false,
+			showMathMenuMSIE: false,
+			menuSettings: {zoom: "Click"},
+			MathZoom: {styles: {"#MathJax_Zoom": {"color": "black !important", "border-radius": "20px"}}},
+			errorSettings: {message: ["span", {"class": "MathJax--error"}, "Could not parse equation"]}
+		});
+	</script>
+</head>
+<body>
+	<div class="header">
+		<div class="nav">
+			<div class="title"><a href="../index.html">Anthony Northrup's Blog</a></div>
+			<ul class="links">
+				<li class="highlight">Pages:</li>
+				<li><a class="nav--link" href="../index.html">Home</a></li>
+				<li><a class="nav--link" href="../about.html">About</a></li>
+				<li><a class="nav--link" href="../contact.html">Contact</a></li>
+				<li class="clearfix"></li>
+			</ul>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+	<div class="content">
+		<div class="breadcrumbs">
+			<span class="highlight">Navigation:</span>
+			<a class="breadcrumb--link" href="../index.html">Home</a>
+			/
+			<span class="breadcrumb--current">Test Home</span>
+		</div>
+		<div class="article">
+			<div class="heading">
+				<div class="title">Test Home</div>
+				<div class="info">
+					<span class="highlight">Written:</span>
+					<span class="date">September 3, 2016</span>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+			<div class="body">
+				<p>This page is just a placeholder so I can use the fancy breadcrumb feature I added in.</p>
+				<p>You can visit the sub-page <a target="" href="./demo.html">here</a> if you want. This page is nothing fancy...</p>
+			</div>
+		</div>
+	</div>
+	<div class="footer">
+		Made by Anthony Northrup &copy; 2016
+	</div>
+</body>
