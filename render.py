@@ -88,6 +88,7 @@ class Logic:
 	def doneRendering(self, page_name, pcontents):
 		phash = hashed(pcontents)
 		self.memory[page_name]["hash"] = hashed(pcontents)
+		self.file_name = ""
 
 def path_parse(fname):
 	res = []

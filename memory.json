@@ -1,15 +1,7 @@
 {
     "/Test/styles.css": {
         "hash": "6406ff18372eae67baba9c4647d5a64c", 
-        "links": [
-            "/css/styles.css", 
-            "/index", 
-            "/about", 
-            "/contact", 
-            "/Test/demo", 
-            "/Test/styles.css", 
-            "/Test/index"
-        ]
+        "links": []
     }, 
     "/Test/index": {
         "hash": "d5a3eca51e517422ae1cd7abfd0750da", 
@@ -18,9 +10,7 @@
             "/index", 
             "/about", 
             "/contact", 
-            "/Test/demo", 
-            "/Test/styles.css", 
-            "/Test/index"
+            "/Test/demo"
         ]
     }, 
     "/raw.html": {
@@ -33,10 +23,7 @@
             "/css/styles.css", 
             "/index", 
             "/about", 
-            "/contact", 
-            "/Test/styles.css", 
-            "/Test/index", 
-            "/Test/demo"
+            "/contact"
         ]
     }, 
     "/about": {
@@ -45,23 +32,12 @@
             "/css/styles.css", 
             "/index", 
             "/about", 
-            "/contact", 
-            "/Test/demo", 
-            "/Test/styles.css", 
-            "/Test/index"
+            "/contact"
         ]
     }, 
     "/css/styles.css": {
         "hash": "d3d0de536b6172ede44fcec84e432f54", 
-        "links": [
-            "/css/styles.css", 
-            "/index", 
-            "/about", 
-            "/contact", 
-            "/Test/demo", 
-            "/Test/styles.css", 
-            "/Test/index"
-        ]
+        "links": []
     }, 
     "/index": {
         "hash": "ad0655e7e7dff7788edf75e92b378da1", 
@@ -71,9 +47,7 @@
             "/about", 
             "/contact", 
             "/raw.html", 
-            "/Test/demo", 
-            "/Test/styles.css", 
-            "/Test/index"
+            "/Test/demo"
         ]
     }, 
     "/Test/demo": {
@@ -84,8 +58,7 @@
             "/index", 
             "/about", 
             "/contact", 
-            "/Test/index", 
-            "/Test/demo"
+            "/Test/index"
         ]
     }
 }
