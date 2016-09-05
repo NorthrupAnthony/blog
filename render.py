@@ -1,4 +1,4 @@
-import os, ast, sys, json, hashlib
+import os, ast, sys, json, hashlib, shutil
 from codesnippets import *
 from collections import deque
 
@@ -255,11 +255,21 @@ def parse_file(logic, file_name, file_contents):
 	return res
 
 def main():
+	clearDist = False
 	forceRender = False
-	if len(sys.argv) > 0:
-		if "--force" in sys.argv:
-			forceRender = True
-			print "[!] Rendering all documents"
+	if "--clean" in sys.argv:
+		clearDist = True
+		forceRender = True
+		print "[!] Clearing dist folder"
+		print "[!] Rendering all documents"
+	elif "--force" in sys.argv:
+		forceRender = True
+		print "[!] Rendering all documents"
+	
+	if clearDist == True:
+		shutil.rmtree("docs")
+		print "[!] Dist folder cleared"
+	
 	logic = Logic("memory.json", ["/index"])
 	found = False
 	while logic.hasNext():

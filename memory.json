@@ -25,15 +25,7 @@
     }, 
     "/raw.html": {
         "hash": "e5bedea722683b7ef78b78170a0dae06", 
-        "links": [
-            "/css/styles.css", 
-            "/Test/styles.css", 
-            "/index", 
-            "/about", 
-            "/contact", 
-            "/Test/index", 
-            "/Test/demo"
-        ]
+        "links": []
     }, 
     "/contact": {
         "hash": "d21d12ea45281676c604c9a7817f5db1", 
@@ -42,9 +34,9 @@
             "/index", 
             "/about", 
             "/contact", 
-            "/Test/demo", 
             "/Test/styles.css", 
-            "/Test/index"
+            "/Test/index", 
+            "/Test/demo"
         ]
     }, 
     "/about": {
@@ -63,12 +55,12 @@
         "hash": "d3d0de536b6172ede44fcec84e432f54", 
         "links": [
             "/css/styles.css", 
-            "/Test/styles.css", 
             "/index", 
             "/about", 
             "/contact", 
-            "/Test/index", 
-            "/Test/demo"
+            "/Test/demo", 
+            "/Test/styles.css", 
+            "/Test/index"
         ]
     }, 
     "/index": {
@@ -78,10 +70,10 @@
             "/index", 
             "/about", 
             "/contact", 
+            "/raw.html", 
             "/Test/demo", 
             "/Test/styles.css", 
-            "/Test/index", 
-            "/raw.html"
+            "/Test/index"
         ]
     }, 
     "/Test/demo": {
