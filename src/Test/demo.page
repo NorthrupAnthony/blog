@@ -1,6 +1,6 @@
 {
 	"breadcrumbs": [["/index", "Home"], ["/Test/index", "Test"]],
-	"title": "Current",
+	"title": "Demo",
 	"fname": "/Test/demo",
 	"written": "September 2, 2016",
 	"langs": ["python", "ada"],
