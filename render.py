@@ -18,9 +18,9 @@ def source_page_name(pname):
 	return file_name("src", pname, "page")
 
 def get(fname, binary=False):
-	mode = 'r'
+	mode = "r"
 	if binary == True:
-		mode = 'rb'
+		mode = "rb"
 	res = ""
 	with open(fname, mode) as f:
 		res = f.read()
@@ -64,6 +64,9 @@ class Logic:
 	def next(self):
 		res = self.lookup.popleft()
 		return res
+	
+	def clear(self):
+		self.memory = dict()
 	
 	def stop(self):
 		with open(self.memory_file, "w+") as f:
@@ -151,19 +154,27 @@ def parse(logic, fname, body):
 					if "type" not in subitem:
 						continue
 					if subitem["type"] == "link":
-						res = res + snippet_tags["link"][0]
+						res = res + snippet_elements["link"][0]
 						if "target" in subitem:
 							res = res + subitem["target"]
-						res = res + snippet_tags["link"][1]
+						res = res + snippet_elements["link"][1]
 						if "href" in subitem:
 							res = res + path_route(logic, fname, subitem["href"])
-						res = res + snippet_tags["link"][2]
+						res = res + snippet_elements["link"][2]
 						if "text" in subitem:
 							res = res + subitem["text"]
-						res = res + snippet_tags["link"][3]
+						res = res + snippet_elements["link"][3]
 					elif subitem["type"] == "text":
 						if "text" in subitem:
 							res = res + subitem["text"]
+					elif subitem["type"] == "code":
+						res = res + snippet_elements["code"][0]
+						if "lang" in subitem:
+							res = res + subitem["lang"]
+						res = res + snippet_elements["code"][1]
+						if "content" in subitem:
+							res = res + subitem["content"]
+						res = res + snippet_elements["code"][2]
 			res = res + snippet_tags["text"][1]
 		elif type(item) is dict:
 			# Custom tag
@@ -263,6 +274,8 @@ def parse_file(logic, file_name, file_contents):
 	return res
 
 def main():
+	logic = Logic("memory.json", ["/index"])
+	
 	clearDist = False
 	forceRender = False
 	if "--clean" in sys.argv:
@@ -277,8 +290,9 @@ def main():
 	if clearDist == True:
 		shutil.rmtree("docs")
 		print "[!] Dist folder cleared"
+		logic.clear()
+		print "[!] Cleared render cache"
 	
-	logic = Logic("memory.json", ["/index"])
 	found = False
 	while logic.hasNext():
 		page_name = logic.next()
@@ -288,7 +302,7 @@ def main():
 			print "[!] Does Not Exist: " + pname
 			continue
 		isbinary = False
-		if pname[(pname.rfind('.') + 1):] in raw_exts:
+		if pname[(pname.rfind(".") + 1):] in raw_exts:
 			isbinary = True
 		pcontents = get(pname, isbinary)
 		render = True
@@ -298,7 +312,7 @@ def main():
 		if not os.path.exists(fdir):
 			render = True
 			os.makedirs(fdir)
-			open(fname, 'a').close()
+			open(fname, "a").close()
 		if forceRender == True or render == True:
 			found = True
 			print "[-] Rendering: " + page_name

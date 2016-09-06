@@ -11,7 +11,16 @@
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/languages/python.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/languages/ada.min.js"></script>
-	<script>hljs.initHighlightingOnLoad();</script>
+	<script>
+		hljs.configure({ tabReplace: "    " })
+		hljs.initHighlightingOnLoad();
+		window.addEventListener("load", function() {
+			var els = document.getElementsByClassName("hljs-inline");
+			for(var i in els) {
+				hljs.highlightBlock(els[i]);
+			}
+		});
+	</script>
 	
 	<!-- MathJax -->
 	<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
@@ -65,7 +74,7 @@
 				<pre><code class="lang-python"># Python
 # filename: foo.py
 def foo():
-    print "Hello, World!"
+	print "Hello, World!"
 
 foo()</code></pre>
 				<p>And now there's syntax highlighting!</p>
@@ -75,7 +84,7 @@ with Ada.Text_IO;
 use Ada.Text_IO;
 procedure foo is
 begin
-    Put_Line("Hello, World!");
+	Put_Line("Hello, World!");
 end;</code></pre>
 				<p>Including other languages.</p>
 				<p>Not sure what else needs to work... How about some latex math?</p>

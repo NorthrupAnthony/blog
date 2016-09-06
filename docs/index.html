@@ -8,7 +8,16 @@
 	<!-- Download more languages: https://cdnjs.com/libraries/highlight.js/9.6.0 -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/default.min.css" />
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
-	<script>hljs.initHighlightingOnLoad();</script>
+	<script>
+		hljs.configure({ tabReplace: "    " })
+		hljs.initHighlightingOnLoad();
+		window.addEventListener("load", function() {
+			var els = document.getElementsByClassName("hljs-inline");
+			for(var i in els) {
+				hljs.highlightBlock(els[i]);
+			}
+		});
+	</script>
 	
 	<!-- MathJax -->
 	<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>

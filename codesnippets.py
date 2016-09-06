@@ -17,7 +17,16 @@ snippet_lang_head = """
 snippet_lang_tail = """.min.js"></script>"""
 
 snippet_middle = """
-	<script>hljs.initHighlightingOnLoad();</script>
+	<script>
+		hljs.configure({ tabReplace: "    " })
+		hljs.initHighlightingOnLoad();
+		window.addEventListener("load", function() {
+			var els = document.getElementsByClassName("hljs-inline");
+			for(var i in els) {
+				hljs.highlightBlock(els[i]);
+			}
+		});
+	</script>
 	
 	<!-- MathJax -->
 	<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
@@ -102,12 +111,6 @@ snippet_tags = {
 				$$ """,
 		""" $$"""
 	],
-	"link": [
-		"""<a target=\"""",
-		"""\" href=\"""",
-		"""\">""",
-		"""</a>"""
-	],
 	"img": [
 		"""
 				<img src=\"""",
@@ -121,5 +124,19 @@ snippet_tags = {
 					""",
 		"""
 				</div>"""
+	]
+}
+
+snippet_elements = {
+	"link": [
+		"""<a target=\"""",
+		"""\" href=\"""",
+		"""\">""",
+		"""</a>"""
+	],
+	"code": [
+		"""<code class="lang-""",
+		""" hljs-inline">""",
+		"""</code>"""
 	]
 }

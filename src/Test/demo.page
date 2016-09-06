@@ -15,7 +15,7 @@
 			"content": """# Python
 # filename: foo.py
 def foo():
-    print "Hello, World!"
+	print "Hello, World!"
 
 foo()"""
 		},
@@ -29,7 +29,7 @@ with Ada.Text_IO;
 use Ada.Text_IO;
 procedure foo is
 begin
-    Put_Line("Hello, World!");
+	Put_Line("Hello, World!");
 end;"""
 		},
 		"Including other languages.",
