@@ -179,7 +179,7 @@ def parsefile(fname):
 		f.close()
 	result = process(contents)
 	return result
-def parsedir(fdir, tdir, clean=False):
+def parsedir(fdir, tdir, clean=False, debug=False):
 	if clean == True:
 		print "[!] Cleared " + tdir
 		shutil.rmtree(tdir)
@@ -188,17 +188,19 @@ def parsedir(fdir, tdir, clean=False):
 		if not os.path.exists(tdirpath):
 			os.makedirs(tdirpath)
 		for filename in filenames:
-			fname = dirpath + "/" + filename
-			tname = tdirpath + "/" + filename
+			fname = dirpath + "\\" + filename
+			tname = tdirpath + "\\" + filename
 			if filename.endswith(".snippet"):
 				tname = tname[:-8] + ".page"
-				print "[-] Parsed: " + fname + " to " + tname
+				if debug == True:
+					print "[-] Parsed: " + fname + " to " + tname
 				parsed = parsefile(fname)
 				with open(tname, "w+") as f:
 					f.write(parsed)
 					f.close()
 			else:
-				print "[-] Copied binary: " + fname + " to " + tname
+				if debug == True:
+					print "[-] Copied binary: " + fname + " to " + tname
 				contents = b""
 				with open(fname, "rb") as f:
 					contents = f.read()
@@ -207,8 +209,11 @@ def parsedir(fdir, tdir, clean=False):
 					f.write(contents)
 					f.close()
 
+def parse_main(cleanDir=False, debug=False):
+	parsedir(".\\snippets", ".\\pages", clean=cleanDir, debug=debug)
+
 if __name__ == "__main__":
 	clean = False
 	if "--clean" in sys.argv:
 		clean = True
-	parsedir("./src", "./dist", clean=clean)
+	parse_main(clean, True)

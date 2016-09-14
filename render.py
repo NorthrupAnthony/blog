@@ -16,7 +16,7 @@ dist_path = "docs"
 def dist_page_name(pname):
 	global dist_path
 	return file_name(dist_path, pname, "html")
-src_path = "src"
+src_path = "pages"
 def source_page_name(pname):
 	global src_path
 	return file_name(src_path, pname, "page")
@@ -277,31 +277,19 @@ def parse_file(logic, file_name, file_contents):
 	res = res + snippet_tail
 	return res
 
-def main():
-	global dist_path, src_path
+def render_main(clearDist=False, forceRender=False):
+	global dist_path
 	logic = Logic("memory.json", ["/index"])
 	
-	clearDist = False
-	forceRender = False
-	if "--clean" in sys.argv:
-		clearDist = True
-		forceRender = True
-		print "[!] Clearing dist folder"
-		print "[!] Rendering all documents"
-	elif "--force" in sys.argv:
-		forceRender = True
-		print "[!] Rendering all documents"
-	
-	if "--alt" in sys.argv:
-		src_path = "alt/dist"
-		print "[!] Rendering from snippet location"
-	
 	if clearDist == True:
+		print "[!] Clearing dist folder"
 		if os.path.exists(dist_path):
 			shutil.rmtree(dist_path)
 		print "[!] Dist folder cleared"
 		logic.clear()
 		print "[!] Cleared render cache"
+	if forceRender == True:
+		print "[!] Rendering all documents"
 	
 	found = False
 	while logic.hasNext():
@@ -341,4 +329,11 @@ def main():
 		print "[-] Nothing to render, all up to date"
 
 if __name__ == "__main__":
-	main()
+	clearDist = False
+	forceRender = False
+	if "--clean" in sys.argv:
+		clearDist = True
+		forceRender = True
+	elif "--force" in sys.argv:
+		forceRender = True
+	render(clearDist, forceRender)
