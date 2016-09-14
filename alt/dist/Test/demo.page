@@ -1,7 +1,7 @@
 {
 	"breadcrumbs": [["/index", "Home"], ["/Test/index", "Test"]],
 	"title": "Demo",
-	"fname": "/Test/Demo",
+	"fname": "/Test/demo",
 	"written": "September 14, 2016",
 	"langs": ["python", "ada"],
 	"styles": ["/Test/styles.css"],
@@ -60,26 +60,7 @@ end;"""
 		},
 		{
 			"type": "chunk",
-			"content": """Not sure what to have here, just a placeholder really.
-Not part of original demo, just testing here..."""
+			"content": """Not sure what to have here, just a placeholder really."""
 		},
-		[
-			"Not part of the original demo, but I need some inline code: ",
-			{
-				"type": "code",
-				"lang": "python",
-				"content": """print "Hello World\""""
-			},
-			" Tada...",
-		],
-		[
-			"This is new as well, but a link without _blank is just ",
-			{
-				"type": "link",
-				"href": "http://www.google.com/",
-				"text": "like this"
-			},
-			".",
-		],
 	]
 }

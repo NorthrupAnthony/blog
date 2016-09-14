@@ -1,0 +1,169 @@
+/// Helpers {}
+.clearfix {
+    content: " ";
+    display: block;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 0;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+    opacity: 0;
+}
+.MathJax--error {
+    color: yellow !important;
+    background-color: red !important;
+}
+
+/// Page {}
+html, body {
+    margin: 0;
+    padding: 0;
+}
+html {
+    background-color: black;
+}
+body {
+    background-color: dimgray;
+    color: white;
+    font-family: sans-serif;
+    font-size: 16px;
+}
+.highlight {
+    color: palegreen;
+}
+a {
+    color: paleturquoise;
+    text-decoration: none;
+}
+.date {
+    color: palegoldenrod;
+}
+
+/// Header {}
+.header {
+    margin: 0;
+    padding: 5px 10px 0 10px;
+    background-color: black;
+    color: white;
+    border-bottom: 5px solid white;
+}
+.header .nav {
+    width: 100%;
+    max-width: 800px;
+    min-width: 700px;
+    margin: 0 auto;
+    padding: 0;
+}
+.header .nav .title {
+    float: left;
+    margin: 0;
+    font-size: 40px;
+    font-weight: bold;
+}
+.header .nav .links {
+    float: right;
+    margin: 0;
+    padding: 0;
+    padding-right: 5px;
+    line-height: 40px;
+    list-style: none;
+}
+.header .nav .links li {
+    float: left;
+    margin-left: 10px;
+}
+.header .nav .links .nav--link {
+    /* Nothing */
+}
+
+/// Content {}
+.content {
+    width: 100%;
+    max-width: 800px;
+    min-width: 700px;
+    margin: 0 auto;
+    padding: 0;
+    background-color: gray;
+}
+// Breadcrumbs {}
+.content .breadcrumbs {
+    margin: 0;
+    padding: 10px 20px;
+    background-color: black;
+}
+.content .breadcrumbs .breadcrumb--link {
+    /* Nothing */
+}
+.content .breadcrumbs .breadcrumb--current {
+    color: pink;
+}
+// Article {}
+.content .article {
+    margin: 0;
+    padding: 10px;
+    padding-top: 5px;
+}
+// Article -> Heading {}
+.content .article .heading {
+    padding-bottom: 5px;
+    border-bottom: 2px solid white;
+    line-height: 30px
+}
+.content .article .heading .title {
+    float: left;
+    font-size: 30px;
+}
+.content .article .heading .info {
+    float: right;
+}
+// Article -> Body {}
+.content .article .body {
+    margin: 0;
+    margin-top: 5px;
+    padding: 0;
+}
+.content .article .body p {
+    text-indent: 40px;
+}
+.content .article .body p, .content .article .body pre, .content .article .body>img, .content .article .body .chunk {
+    margin: 0;
+    margin-top: 10px;
+    padding: 0;
+}
+.content .article .body pre code {
+    display: block;
+    margin: 0;
+    padding: 5px 10px;
+}
+.content .article .body .hljs-inline {
+	margin: 0;
+	padding: 1px 5px;
+}
+.content .article .body pre code, .content .article .body .hljs-inline {
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: beige;
+    color: black;
+}
+.content .article .body>img {
+    text-align: center;
+    display: block;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 5px solid black;
+    border-radius: 5px;
+}
+
+/// Footer {}
+.footer {
+    margin: 0;
+    padding: 5px;
+    border-top: 5px solid white;
+    background-color: black;
+    text-align: center;
+    font-size: 20px;
+    line-height: 30px;
+    font-style: italic;
+}

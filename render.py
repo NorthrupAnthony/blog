@@ -12,10 +12,14 @@ def file_name(folder, pname, ext):
 	if "/" not in fname:
 		fname = "/" + fname
 	return folder + fname
+dist_path = "docs"
 def dist_page_name(pname):
-	return file_name("docs", pname, "html")
+	global dist_path
+	return file_name(dist_path, pname, "html")
+src_path = "src"
 def source_page_name(pname):
-	return file_name("src", pname, "page")
+	global src_path
+	return file_name(src_path, pname, "page")
 
 def get(fname, binary=False):
 	mode = "r"
@@ -274,6 +278,7 @@ def parse_file(logic, file_name, file_contents):
 	return res
 
 def main():
+	global dist_path, src_path
 	logic = Logic("memory.json", ["/index"])
 	
 	clearDist = False
@@ -287,8 +292,13 @@ def main():
 		forceRender = True
 		print "[!] Rendering all documents"
 	
+	if "--alt" in sys.argv:
+		src_path = "alt/dist"
+		print "[!] Rendering from snippet location"
+	
 	if clearDist == True:
-		shutil.rmtree("docs")
+		if os.path.exists(dist_path):
+			shutil.rmtree(dist_path)
 		print "[!] Dist folder cleared"
 		logic.clear()
 		print "[!] Cleared render cache"

@@ -1,4 +1,4 @@
-import sys, os
+import sys, os, shutil
 
 def die(msg):
 	raise SystemExit(str(msg))
@@ -38,7 +38,7 @@ def process(contents):
 				res += "\t\"breadcrumbs\": ["
 				res += ", ".join(breadcrumbs)
 				res += "],\n"
-			elif header in ["title", "fname", "written"]:
+			elif header in ["breadcrumb", "title", "fname", "written"]:
 				res += "\t\"" + header + "\": \""
 				if hasnext():
 					res += next()
@@ -172,25 +172,43 @@ def process(contents):
 	res += "}"
 	return res
 
-def main():
-	if len(sys.argv) != 2:
-		die("Usage: python parser.py <input-name>")
-	name = str(sys.argv[1])
-	iname = name + ".snippet"
-	if not os.path.isfile(iname):
-		die("Invalid input file")
-	oname = name + ".page"
+def parsefile(fname):
 	contents = ""
-	with open(iname, "r") as f:
+	with open(fname, "r") as f:
 		contents = f.read()
 		f.close()
-	print "Parsing " + iname
 	result = process(contents)
-	with open(oname, "w+") as f:
-		f.write(result)
-		f.close()
-	print "Saved to " + oname
-	print "Finished"
+	return result
+def parsedir(fdir, tdir, clean=False):
+	if clean == True:
+		print "[!] Cleared " + tdir
+		shutil.rmtree(tdir)
+	for (dirpath, dirnames, filenames) in os.walk(fdir):
+		tdirpath = dirpath.replace(fdir, tdir)
+		if not os.path.exists(tdirpath):
+			os.makedirs(tdirpath)
+		for filename in filenames:
+			fname = dirpath + "/" + filename
+			tname = tdirpath + "/" + filename
+			if filename.endswith(".snippet"):
+				tname = tname[:-8] + ".page"
+				print "[-] Parsed: " + fname + " to " + tname
+				parsed = parsefile(fname)
+				with open(tname, "w+") as f:
+					f.write(parsed)
+					f.close()
+			else:
+				print "[-] Copied binary: " + fname + " to " + tname
+				contents = b""
+				with open(fname, "rb") as f:
+					contents = f.read()
+					f.close()
+				with open(tname, "wb+") as f:
+					f.write(contents)
+					f.close()
 
 if __name__ == "__main__":
-	main()
+	clean = False
+	if "--clean" in sys.argv:
+		clean = True
+	parsedir("./src", "./dist", clean=clean)
