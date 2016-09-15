@@ -7,7 +7,7 @@ Home
 /index
 
 # written
-September 14, 2016
+September 15, 2016
 
 # langs
 
@@ -15,15 +15,41 @@ September 14, 2016
 
 ### content
 
-Hello and welcome to my site!
+Hello and welcome to my site! First created September 2, 2016.
 
-All of this is created programmatically by a neat python script. It took about three days to perfect it but it now works like a charm.
+All of this is created programmatically by a neat python script. It took about a few weeks to perfect it but it now works like a charm. Originally I typed up the design in normal HTML (link below), then I wanted to make the content easier to put up, without having to type out all the repetitive HTML stuff. Now came the 
+`
+.page
+`
+ files. They worked great (at first), making it precise for creating a new page. The 
+`
+.page
+`
+ files were just python files that would be read as literals, using the 
+` python
+ast.literal_eval(contents)
+`
+ method to ensure safety, and then processed to HTML. This all worked great until I wanted to actually type up something quickly. All the syntax sugar I had to add to simple things such as writing out a code block was way too much.
+
+Then came the 
+`
+.snippet
+`
+ file type. It was a mix between markdown and whatever I felt like using for the time. Finally the process became easier, but I still converted the files to the 
+`
+.page
+`
+ files before then converting to HTML. It wasn't so bad, but it got very messy, and the 
+`
+.page
+`
+ files weren't even that necessary. Eventually (today, September 15, 2016) I combined the two processes into one, and streamlined the process. All of this was made safer and easier by using the Github version control, deleting large sections of code never feels safe without it. Overall, I'm pretty happy with how it turned out.
 
 Here's a link to the 
 ? /raw.html
 original demo page
 ?
- I first typed up in raw HTML. It is now encoded in my .page format which I parsed and output using my python script to the 
+ I first typed up in raw HTML. It is now encoded in my .snippet format which I parsed and output using my python script to the 
 ? /Test/demo
 new demo page
 ?

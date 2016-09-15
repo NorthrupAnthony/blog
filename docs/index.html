@@ -56,14 +56,15 @@
 				<div class="title">Home</div>
 				<div class="info">
 					<span class="highlight">Written:</span>
-					<span class="date">September 14, 2016</span>
+					<span class="date">September 15, 2016</span>
 				</div>
 				<div class="clearfix"></div>
 			</div>
 			<div class="body">
-				<p>Hello and welcome to my site!</p>
-				<p>All of this is created programmatically by a neat python script. It took about three days to perfect it but it now works like a charm.</p>
-				<p>Here's a link to the <a target="_self" href="./raw.html">original demo page</a> I first typed up in raw HTML. It is now encoded in my .page format which I parsed and output using my python script to the <a target="_self" href="Test/demo.html">new demo page</a>. Fancy, right?</p>
+				<p>Hello and welcome to my site! First created September 2, 2016.</p>
+				<p>All of this is created programmatically by a neat python script. It took about a few weeks to perfect it but it now works like a charm. Originally I typed up the design in normal HTML (link below), then I wanted to make the content easier to put up, without having to type out all the repetitive HTML stuff. Now came the <code class="lang- hljs-inline">.page</code> files. They worked great (at first), making it precise for creating a new page. The <code class="lang- hljs-inline">.page</code> files were just python files that would be read as literals, using the <code class="lang-python hljs-inline">ast.literal_eval(contents)</code> method to ensure safety, and then processed to HTML. This all worked great until I wanted to actually type up something quickly. All the syntax sugar I had to add to simple things such as writing out a code block was way too much.</p>
+				<p>Then came the <code class="lang- hljs-inline">.snippet</code> file type. It was a mix between markdown and whatever I felt like using for the time. Finally the process became easier, but I still converted the files to the <code class="lang- hljs-inline">.page</code> files before then converting to HTML. It wasn't so bad, but it got very messy, and the <code class="lang- hljs-inline">.page</code> files weren't even that necessary. Eventually (today, September 15, 2016) I combined the two processes into one, and streamlined the process. All of this was made safer and easier by using the Github version control, deleting large sections of code never feels safe without it. Overall, I'm pretty happy with how it turned out.</p>
+				<p>Here's a link to the <a target="_self" href="./raw.html">original demo page</a> I first typed up in raw HTML. It is now encoded in my .snippet format which I parsed and output using my python script to the <a target="_self" href="Test/demo.html">new demo page</a>. Fancy, right?</p>
 			</div>
 		</div>
 	</div>

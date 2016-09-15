@@ -41,11 +41,11 @@
         ]
     }, 
     "/css/styles.css": {
-        "hash": "19ef9a81ed3cafe695f3ec29b03b5977", 
+        "hash": "98f2cfc48da8cb6cb3ade05ac53a0481", 
         "links": []
     }, 
     "/index": {
-        "hash": "1bb3c80912785286748fd0c0008864a8", 
+        "hash": "fc56142d747521ffd83ba90300e62c9a", 
         "links": [
             "/css/styles.css", 
             "/index", 
